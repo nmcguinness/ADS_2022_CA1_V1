@@ -5,23 +5,11 @@
 #include <iostream>
 #include "Functions.h"
 
-void countOccurences(string data, char target, int& frequency)
-{
-	if (data.length() == 0)			//1. when do i finish?
-		return;
-	else
-	{
-		if (data[0] == target) 		//2. when do i call myself?
-			frequency++;
-		countOccurences(data.substr(0), target, frequency);
-	}
-}
-
 int main()
 {
-	string data = "abcedef";	char target = 'a';	int frequency = 0;
+	string data = "xbcdefgz";	char target = 'a';	int frequency = 0;
 	countOccurences(data, target, frequency);
-	cout << "The frequency of " << target << " is " << frequency;
+	cout << "The frequency of " << target << " is " << frequency << endl;
 
 #pragma region Connect To DB
 	int x = 10;

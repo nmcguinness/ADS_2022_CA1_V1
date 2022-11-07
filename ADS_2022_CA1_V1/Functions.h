@@ -26,15 +26,15 @@ void mergeArray(int* pArr1, int length1,
 /// </summary>
 /// <param name="data">Original string (e.g. "abcdea")</param>
 /// <param name="target">Target string (e.g. "a")</param>
-//void countOccurences(string data, char target, int& frequency)
-//{
-//	if (data.length() == 0)			//1. when do i finish?
-//		return;
-//	else
-//	{
-//		if (data[0] == target) 		//2. when do i call myself?
-//			frequency++;
-//
-//		countOccurences(data.substr(0), target, frequency);
-//	}
-//}
+void countOccurences(string data, char target, int& frequency)
+{
+	if (data.length() == 0)			//1. when do i finish?
+		return;
+	else
+	{
+		if (data[0] == target) 		//2. when do i call myself?
+			frequency++;
+
+		countOccurences(data.substr(1), target, frequency);
+	}
+}
