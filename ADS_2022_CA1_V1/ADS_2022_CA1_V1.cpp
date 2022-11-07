@@ -1,20 +1,34 @@
 // ADS_2022_CA1_V1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#define SHOW_DEBUG
 
 #include <iostream>
+#include "Functions.h"
+
+void countOccurences(string data, char target, int& frequency)
+{
+	if (data.length() == 0)			//1. when do i finish?
+		return;
+	else
+	{
+		if (data[0] == target) 		//2. when do i call myself?
+			frequency++;
+		countOccurences(data.substr(0), target, frequency);
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	string data = "abcedef";	char target = 'a';	int frequency = 0;
+	countOccurences(data, target, frequency);
+	cout << "The frequency of " << target << " is " << frequency;
+
+#pragma region Connect To DB
+	int x = 10;
+	//...
+#pragma endregion
+
+#ifdef SHOW_DEBUG
+	std::cout << "some debug data";
+#endif // NIALL
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
